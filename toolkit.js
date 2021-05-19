@@ -1,7 +1,7 @@
 /**
  * @description Generate a button which can visually change for three states including mouse over, mouse out, click and mouse up, with set label property and event handler.
- * @param {any} window 
- * @returns {object}
+ * @param {any} window canvas
+ * @returns {object} functions
  */
 function Button(window) {
     var draw = window;
@@ -52,29 +52,29 @@ function Button(window) {
     return {
         /**
          * @description Move the button position
-         * @param {number} x 
-         * @param {number} y 
+         * @param {number} x horizontal position
+         * @param {number} y vertical position
          */
         move: function(x, y) {
             rect.move(x, y);
         },
         /**
          * @description get and set the click event
-         * @param {event} eventHandler 
+         * @param {event} eventHandler click/mouse over/mouse out event
          */
         onclick: function(eventHandler) {
             clickEvent = eventHandler
         },
         /**
          * @description get and set the new changed state
-         * @param {event} eventHandler 
+         * @param {event} eventHandler new current event
          */
         onStateChange: function(eventHandler) {
             stateChangeEvent = eventHandler
         },
         /**
          * @description get and set the text label 
-         * @param {String} txt 
+         * @param {String} txt label
          */
         setLabel: function(txt) {
             text.text(txt)
@@ -84,8 +84,8 @@ function Button(window) {
 }
 /**
  * @description Generate a CheckBox which can visually change between checked and unchecked states, with set label property and event handler.
- * @param {any} window 
- * @returns {Object}
+ * @param {any} window canvas
+ * @returns {Object} functions
  */
 function CheckBox(window) {
     var draw = window;
@@ -129,22 +129,22 @@ function CheckBox(window) {
     return {
         /**
          * @description Move the checkbox position
-         * @param {number} x 
-         * @param {number} y 
+         * @param {number} x horizonal position
+         * @param {number} y vertical position
          */
         move: function(x, y) {
             group.move(x, y);
         },
         /**
          * @description get and set the onchange click event
-         * @param {event} eventHandler 
+         * @param {event} eventHandler click event 
          */
         onChange: function(eventHandler) {
             onChangeEvent = eventHandler
         },
         /**
          * @description get and set the text label
-         * @param {String} txt 
+         * @param {String} txt label
          */
         setLabel: function(txt) {
             text.text(txt)
@@ -154,9 +154,9 @@ function CheckBox(window) {
 
 /**
  * @description Generate RadioBoxs which can visually change between checked and unchecked states, supports display of 2 to n radio buttons, only one button can be check at a time, with set label property and event handler.
- * @param {any} window 
- * @param {Array} args 
- * @returns {Object}
+ * @param {any} window canvas
+ * @param {Array} args radio box info array
+ * @returns {Object} functions
  */
 function RadioBox(window, args) {
     // const radios = []
@@ -204,29 +204,29 @@ function RadioBox(window, args) {
     return {
         /**
          * @description Move the button position
-         * @param {number} x 
-         * @param {number} y 
+         * @param {number} x horizonal position
+         * @param {number} y vertical position
          */
         move: function(x, y) {
             groupRadios.move(x, y)
         },
         /**
          * @description get and set the onchange click event
-         * @param {event} eventHandler 
+         * @param {event} eventHandler click event
          */
         onChange: function(eventHandler) {
             onChangeEvent = eventHandler
         },
         /**
          * @description get and set the new changed state
-         * @param {event} eventHandler 
+         * @param {event} eventHandler new changed event 
          */
         onStateChange: function(eventHandler) {
             stateChangeEvent = eventHandler
         },
         /**
          * @description get and set the text label
-         * @param {String} txt 
+         * @param {String} txt label
          */
         setLabel: function(txt) {
             text.text(txt)
@@ -236,8 +236,8 @@ function RadioBox(window, args) {
 
 /**
  * @description Generate ScrollBar which can visually shows the current scroll bar states triggered by click event, contains set height property, get scroll thumb property, and event handler.
- * @param {any} window 
- * @returns {Object}
+ * @param {any} window canvas
+ * @returns {Object} functions
  */
 function ScrollBar(window) {
     var draw = window;
@@ -281,15 +281,15 @@ function ScrollBar(window) {
     return {
         /**
          * @description Move the scrollbar position
-         * @param {number} x 
-         * @param {number} y 
+         * @param {number} x horizonal position
+         * @param {number} y vertical position
          */
         move: function(x, y) {
             group.move(x, y)
         },
         /**
          * @description set the scrollbar height
-         * @param {number} value 
+         * @param {number} value scrollbar height
          */
         setHeight: function(value) {
             group.height(value)
@@ -306,14 +306,14 @@ function ScrollBar(window) {
         },
         /**
          * @description get the wheel's position.
-         * @returns {Object}
+         * @returns {Object} wheel position x, y
          */
         getPosition: function() {
             return { x: wheel.x(), y: wheel.y() };
         },
         /**
          * @description get and set the new changed state
-         * @param {event} eventHandler 
+         * @param {event} eventHandler new changed event
          */
         onStateChange: function(eventHandler) {
             stateChangeEvent = eventHandler
@@ -322,8 +322,8 @@ function ScrollBar(window) {
 }
 /**
  * @description Generate a textbox which can visually show a caret triggered by hover event, contains a get text entered property and event handler. 
- * @param {any} window
- * @returns {Object}
+ * @param {any} window canvas
+ * @returns {Object} functions
  */
 function TextBox(w) {
     var draw = w;
@@ -375,29 +375,29 @@ function TextBox(w) {
     return {
         /**
          * @description Move the textbox position
-         * @param {number} x 
-         * @param {number} y 
+         * @param {number} x horizonal position
+         * @param {number} y vertical position
          */
         move: function(x, y) {
             group.move(x, y)
         },
         /**
-         * @description get and set the onchange click event
-         * @param {event} onChangeEventHandler 
+         * @description get and set the onchange hover event
+         * @param {event} onChangeEventHandler mouse hover event
          */
         onChange: function(onChangeEventHandler) {
             onChangeEvent = onChangeEventHandler
         },
         /**
          * @description get text entered
-         * @returns {String}
+         * @returns {String} text entered
          */
         text: function() {
             return text.text();
         },
         /**
          * @description get and set the new changed state
-         * @param {event} eventHandler 
+         * @param {event} eventHandler new changed state
          */
         onStateChange: function(eventHandler) {
             stateChangeEvent = eventHandler
@@ -407,8 +407,8 @@ function TextBox(w) {
 
 /**
  * @description Generate a ProgressBar which visually shows the ongoing progress, contains a set bar width property, set increment value property, increment progress value property, and event handler.
- * @param {any} window 
- * @returns {Object}
+ * @param {any} window canvas
+ * @returns {Object} functions
  */
 function ProgressBar(window) {
     var draw = window;
@@ -436,16 +436,16 @@ function ProgressBar(window) {
 
     return {
         /**
-         * 
-         * @param {*} x 
-         * @param {*} y 
+         * @description move the progress bar postion
+         * @param {*} x horizontal-position
+         * @param {*} y vertical-position
          */
         move: function(x, y) {
             group.move(x, y);
         },
         /**
-         * 
-         * @param {*} speed 
+         * @description set the progress speed
+         * @param {number} speed custom speed value
          */
         progress: function(speed) {
             let progress
@@ -471,8 +471,8 @@ function ProgressBar(window) {
         },
         /**
          * @description Adjust the progress bar size
-         * @param {number} width 
-         * @param {number} height 
+         * @param {number} width progress bar width
+         * @param {number} height progress bar height
          */
         size: function(width, height) {
             rect.attr({ width, height })
@@ -480,21 +480,21 @@ function ProgressBar(window) {
         },
         /**
          * @description set the progress increment value
-         * @param {number} inc 
+         * @param {number} inc custom increment value
          */
         setIncrement: function(inc) {
             increment = inc;
         },
         /**
          * @description get the progress increment value
-         * @returns {number}
+         * @returns {number} increment value
          */
         getIncrement: function() {
             return increment;
         },
         /**
          * @description get and set the new changed state
-         * @param {event} eventHandler 
+         * @param {event} eventHandler new changed state
          */
         onStateChange: function(eventHandler) {
             stateChangeEvent = eventHandler
@@ -504,8 +504,8 @@ function ProgressBar(window) {
 }
 /**
  * @description Generate a Toggle Button which visually shows the switch on or switch of status, with a set position property and a event handler.
- * @param {any} window 
- * @returns {Object}
+ * @param {any} window canvas
+ * @returns {Object} functions
  */
 function ToggleButton(window) {
     var draw = window;
@@ -555,15 +555,15 @@ function ToggleButton(window) {
     return {
         /**
          * @description Move the toggle button position
-         * @param {number} x 
-         * @param {number} y 
+         * @param {number} x horizonal position
+         * @param {number} y vertical position
          */
         move: function(x, y) {
             group.move(x, y);
         },
         /**
          * @description get and set the new changed state
-         * @param {event} eventHandler 
+         * @param {event} eventHandler new click event
          */
         onStateChange: function(eventHandler) {
             stateChangeEvent = eventHandler
